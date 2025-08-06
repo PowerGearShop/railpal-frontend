@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailPal.AI - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">RailPal.AI</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        </ul>
+    </nav>
+    <main class="dashboard-page">
+        <h1>Upload Switch Lists</h1>
+        <section class="upload-section">
+            <form id="upload-form">
+                <label for="fileInput">Select switch list or inventory image:</label><br>
+                <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.pdf"><br>
+                <button type="submit">Analyze</button>
+            </form>
+        </section>
+        <section class="results-section">
+            <h2>Results</h2>
+            <pre id="ocrResults"></pre>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 RailPal.AI. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
