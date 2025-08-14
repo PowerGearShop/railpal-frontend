@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RailPal.AI - Pricing</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RailPal.AI Pricing</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="index.html" class="logo">RailPal.AI</a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pricing.html" class="active">Pricing</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </nav>
-    <main class="pricing-page">
-        <h1>Choose Your Plan</h1>
-        <div class="pricing-plans">
-            <div class="pricing-plan">
-                <h2>Free Trial</h2>
-                <p class="pricing-price">0$</p>
-                <p>Get started with 3 free scanning sessions</p>
-                <button disabled>Start Trial</button>
-            </div>
-            <div class="pricing-plan">
-                <h2>Credit Pack</h2>
-                <p class="pricing-price">$2.99</p>
-                <p>Purchase 10 scan credits</p>
-                <button id="creditsBtn">Buy Credits</button>
-            </div>
-            <div class="pricing-plan">
-                <h2>Monthly</h2>
-                <p class="pricing-price">$9.99 / month</p>
-                <p>Unlimited scans for one month</p>
-                <button id="subscribeBtn">Subscribe</button>
-            </div>
+  <nav>
+    <div class="logo">
+      <img src="assets/railpal_logo.png" alt="RailPal AI Logo">
+      <span>RailPal.AI</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+    </ul>
+  </nav>
+
+  <div class="dashboard">
+    <div class="section" style="text-align:center;">
+      <h2>Choose Your Plan</h2>
+      <p style="color:#b3c9e0; margin-bottom:2rem;">Select the option that best fits your switching needs. All payments are handled securely via Stripe.</p>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem;">
+        <!-- Free trial card -->
+        <div style="background:#0f1540; border:1px solid #1d2b57; border-radius:12px; padding:1.5rem; width:280px;">
+          <h3 style="color:#00e0ff; margin-bottom:0.5rem;">Free Trial</h3>
+          <p style="color:#b3c9e0; margin-bottom:1rem;">Try RailPal with 3 free scanning sessions. Perfect for a quick look.</p>
+          <button class="btn-secondary" onclick="alert('You have already used your free trial!')">Use Free Trial</button>
         </div>
-    </main>
-    <footer class="footer">
-        <p>&copy; 2025 RailPal.AI. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+        <!-- Credit pack card -->
+        <div style="background:#0f1540; border:1px solid #1d2b57; border-radius:12px; padding:1.5rem; width:280px;">
+          <h3 style="color:#00e0ff; margin-bottom:0.5rem;">Credit Pack</h3>
+          <p style="color:#b3c9e0; margin-bottom:1rem;">10 scanning credits for only $2.99. Credits never expire.</p>
+          <button id="creditsBtn" class="btn-primary">Buy Credits</button>
+        </div>
+        <!-- Subscription card -->
+        <div style="background:#0f1540; border:1px solid #1d2b57; border-radius:12px; padding:1.5rem; width:280px;">
+          <h3 style="color:#00e0ff; margin-bottom:0.5rem;">Monthly Subscription</h3>
+          <p style="color:#b3c9e0; margin-bottom:1rem;">Unlimited scanning for $9.99 per month. Cancel anytime.</p>
+          <button id="subscribeBtn" class="btn-primary">Subscribe Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">© 2025 RailPal.AI. All rights reserved.</footer>
 </body>
 </html>
