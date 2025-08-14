@@ -1,38 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RailPal.AI - Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RailPal.AI Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Load Tesseract.js via CDN for OCR processing -->
+  <script defer src="https://cdn.jsdelivr.net/npm/tesseract.js@2/dist/tesseract.min.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="index.html" class="logo">RailPal.AI</a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="dashboard.html" class="active">Dashboard</a></li>
-        </ul>
-    </nav>
-    <main class="dashboard-page">
-        <h1>Upload Switch Lists</h1>
-        <section class="upload-section">
-            <form id="upload-form">
-                <label for="fileInput">Select switch list or inventory image:</label><br>
-                <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.pdf"><br>
-                <button type="submit">Analyze</button>
-            </form>
-        </section>
-        <section class="results-section">
-            <h2>Results</h2>
-            <pre id="ocrResults"></pre>
-        </section>
-    </main>
-    <footer class="footer">
-        <p>&copy; 2025 RailPal.AI. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+  <nav>
+    <div class="logo">
+      <img src="assets/railpal_logo.png" alt="RailPal AI Logo">
+      <span>RailPal.AI</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+    </ul>
+  </nav>
+
+  <div class="dashboard">
+    <!-- Status bar -->
+    <div id="status" style="display:none; margin-bottom: 1rem; font-weight: 500; color:#00e0ff;"></div>
+
+    <!-- Work order section -->
+    <div class="section">
+      <h2>Load Work Orders (Customer Requested Cars)</h2>
+      <p>Select or capture a photo of your customer work order list. The system will extract railcar numbers and spot placements.</p>
+      <label for="workOrderInput">Upload or capture work order image:</label>
+      <input type="file" id="workOrderInput" accept="image/*,application/pdf" capture="environment">
+      <div id="workOrdersList" style="margin-top: 1rem;"></div>
+    </div>
+
+    <!-- Inventory section -->
+    <div class="section">
+      <h2>Scan Track Inventory</h2>
+      <p>Upload or capture your inventory track list. Matching railcars will be highlighted with their requested spot numbers.</p>
+      <label for="inventoryInput">Upload or capture track list image:</label>
+      <input type="file" id="inventoryInput" accept="image/*,application/pdf" capture="environment">
+      <div id="resultsTableContainer" style="overflow-x:auto; margin-top:1rem;">
+        <table id="resultsTable" class="results-table"></table>
+      </div>
+      <button id="downloadCsvBtn" class="btn-secondary" style="display:none; margin-top:1rem;">Download CSV</button>
+    </div>
+  </div>
+
+  <footer class="footer">© 2025 RailPal.AI. All rights reserved.</footer>
 </body>
 </html>
