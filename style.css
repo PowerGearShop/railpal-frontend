@@ -1,185 +1,239 @@
-/* General styles */
-body {
+/*
+  RailPal.AI Front‑End Stylesheet
+  This stylesheet defines a modern, dark interface with neon accents for the RailPal.AI web app. It
+  imports the Poppins font family for clean typography and applies consistent styling across
+  navigation, forms, buttons, and data tables. Neon blues and greens are used for highlights to
+  complement the RailPal logo. Adjust values here to further refine the look and feel of the UI.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0a0f23;
-  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Navigation */
-.nav {
+body {
+  background-color: #0a0f23;
+  color: #e5f2f8;
+  line-height: 1.6;
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #0a0f23;
+  flex-direction: column;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffffff;
-}
-
-.logo .highlight {
-  color: #00ccff;
-}
-
-.nav-link {
-  margin-left: 1rem;
-  color: #ffffff;
+a {
+  color: #00e0ff;
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navigation bar */
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #0f1540;
+  border-bottom: 1px solid #1d2b57;
+}
+
+nav .logo {
+  display: flex;
+  align-items: center;
+}
+
+nav .logo img {
+  height: 50px;
+  margin-right: 0.8rem;
+}
+
+nav .logo span {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #00e0ff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-left: 1.5rem;
+}
+
+nav ul li a {
+  font-weight: 500;
+  color: #e5f2f8;
   transition: color 0.2s ease;
 }
 
-.nav-link:hover {
-  color: #00ccff;
+nav ul li a:hover {
+  color: #00e0ff;
 }
 
-/* Buttons */
-.btn {
-  display: inline-block;
-  margin: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.btn.primary {
-  background-color: #00ccff;
-  color: #0a0f23;
-}
-
-.btn.secondary {
-  border: 2px solid #00ccff;
-  color: #00ccff;
-}
-
-.btn:hover {
-  opacity: 0.85;
-}
-
-/* Hero section */
+/* Hero section on landing page */
 .hero {
   text-align: center;
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .hero h1 {
   font-size: 3rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+  color: #00e0ff;
 }
 
 .hero p {
-  font-size: 1.25rem;
-  max-width: 600px;
-  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #b3c9e0;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #0a0f23;
-  color: #666;
-  font-size: 0.875rem;
-}
-
-/* Login page */
-.login-page {
-  max-width: 400px;
-  margin: 4rem auto;
-  background-color: #112;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 204, 255, 0.3);
-}
-
-.login-page h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.login-page label {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: #00ccff;
-}
-
-.login-page input {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
+.btn-primary {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background: linear-gradient(60deg, #00e0ff, #00ffcc);
   border: none;
-  border-radius: 4px;
-  background-color: #223;
-  color: #fff;
+  border-radius: 30px;
+  color: #0a0f23;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Pricing page */
-.pricing-page {
-  text-align: center;
-  padding: 4rem 2rem;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
 }
 
-.pricing-container {
+.btn-secondary {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  background-color: #1d2b57;
+  border: 2px solid #00e0ff;
+  border-radius: 30px;
+  color: #00e0ff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #0f3a63;
+}
+
+/* Dashboard container */
+.dashboard {
+  flex: 1;
+  width: 95%;
+  max-width: 1200px;
+  margin: 2rem auto;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: 2rem;
 }
 
-.plan {
-  background-color: #112;
-  border-radius: 8px;
-  padding: 2rem;
-  width: 250px;
-  box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+.section {
+  background-color: #0f1540;
+  border: 1px solid #1d2b57;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.plan h3 {
-  color: #00ccff;
+.section h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #00e0ff;
 }
 
-.plan .price {
-  font-size: 2rem;
-  margin: 1rem 0;
-  color: #ffffff;
+.section label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #b3c9e0;
 }
 
-/* Dashboard page */
-.dashboard-page {
-  padding: 4rem 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.upload-section {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.upload-section input[type="file"] {
-  flex: 1;
+.section input[type="file"] {
+  width: 100%;
   padding: 0.5rem;
-  background-color: #112;
-  color: #fff;
-  border-radius: 4px;
-  border: 1px solid #00ccff;
+  background-color: #13192e;
+  color: #e5f2f8;
+  border: 1px solid #294372;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
-.results-section {
-  background-color: #112;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+.section button {
+  margin-top: 0.5rem;
 }
 
-.results-section pre {
-  white-space: pre-wrap;
-  color: #00ccff;
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.results-table th,
+.results-table td {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #294372;
+  text-align: left;
+  color: #e5f2f8;
+}
+
+.results-table th {
+  background-color: #15204b;
+  color: #00e0ff;
+  font-weight: 600;
+}
+
+.results-table tr:nth-child(even) {
+  background-color: #101a39;
+}
+
+.results-table tr.highlight {
+  background-color: #113358;
+  color: #00ffcc;
+  font-weight: 600;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+  color: #56769e;
+  font-size: 0.8rem;
+  border-top: 1px solid #1d2b57;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  nav ul li {
+    margin-left: 1rem;
+  }
 }
